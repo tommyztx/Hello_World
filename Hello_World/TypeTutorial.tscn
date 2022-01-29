@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Fonts/VeraMono.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Cursor.tscn" type="PackedScene" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -18,12 +19,24 @@ __meta__ = {
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 margin_left = 101.0
-margin_top = 180.0
+margin_top = 182.0
 margin_right = 851.0
-margin_bottom = 347.0
+margin_bottom = 349.0
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_text = "What's your name: _______"
-text = "What's your name:"
+text = "What's your name: _______"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 535.0
+margin_top = 175.0
+margin_right = 828.0
+margin_bottom = 249.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cursor" parent="." instance=ExtResource( 2 )]
+position = Vector2( 494, 317 )
