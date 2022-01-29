@@ -14,6 +14,11 @@ config/name="Hello_World"
 run/main_scene="res://Cursor.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
 [input]
 
 move_right={
