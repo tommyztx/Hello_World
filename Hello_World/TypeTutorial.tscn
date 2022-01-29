@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Fonts/VeraMono.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 1 )
+
+[node name="TypeTutorial" type="Node"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.117647, 0.0980392, 0.0980392, 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 101.0
+margin_top = 180.0
+margin_right = 851.0
+margin_bottom = 347.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_text = "What's your name: _______"
+text = "What's your name:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
