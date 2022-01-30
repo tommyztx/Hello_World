@@ -9,7 +9,7 @@ var transparency= 0
 
 func _ready():
 	timer.set_wait_time(6)
-	textbox.addtext("Hi there!")
+	textbox.addtext("Hi there! Welcome to my game. It's supposed to help you learn to code like a professional!")
 	timer.connect("timeout", self, "_on_Timer_timeout")
 	timer.start()
 	
