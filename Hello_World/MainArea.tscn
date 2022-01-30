@@ -1,15 +1,32 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://PNGs/folder.png" type="Texture" id=1]
 [ext_resource path="res://PNGs/lock.png" type="Texture" id=2]
+[ext_resource path="res://TextBoxfv.gd" type="Script" id=3]
+[ext_resource path="res://MainArea.gd" type="Script" id=4]
+[ext_resource path="res://TextBox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://PNGs/MainAreaBackground.jpg" type="Texture" id=6]
 [ext_resource path="res://Cursor.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31, 24 )
 
 [node name="MainArea" type="Node"]
+script = ExtResource( 4 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 896.0
+margin_bottom = 600.0
+rect_scale = Vector2( 0.533, 0.5 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Background" type="ColorRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1.0
@@ -70,6 +87,9 @@ z_index = 1
 texture = ExtResource( 2 )
 
 [node name="Cursor" parent="." instance=ExtResource( 7 )]
+
+[node name="TextBoxfv" parent="." instance=ExtResource( 5 )]
+script = ExtResource( 3 )
 
 [connection signal="area_entered" from="Folder1" to="Cursor" method="_on_Folder1_area_entered"]
 [connection signal="body_entered" from="Folder1" to="Folder1" method="_on_Folder1_body_entered"]

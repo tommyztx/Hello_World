@@ -1,16 +1,9 @@
 extends Node
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var textbox = get_node("TextBoxfv")
+onready var label = get_node("TextBoxfv/TextboxContainer/MarginContainer/HBoxContainer/Label")
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	label.get_font('font').size = 30
+	textbox.addtext("Phew, that's better. You can take in the fresh air or go to the open level to the right.")
