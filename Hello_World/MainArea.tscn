@@ -1,10 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://PNGs/folder.png" type="Texture" id=1]
 [ext_resource path="res://PNGs/lock.png" type="Texture" id=2]
-[ext_resource path="res://Folder1.gd" type="Script" id=3]
-[ext_resource path="res://Folder3.gd" type="Script" id=4]
-[ext_resource path="res://Folder2.gd" type="Script" id=5]
+[ext_resource path="res://Cursor.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31, 24 )
@@ -25,7 +23,6 @@ __meta__ = {
 
 [node name="Folder1" type="Area2D" parent="."]
 position = Vector2( 973, 230 )
-script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="Folder1"]
 position = Vector2( 2, 46 )
@@ -38,7 +35,6 @@ shape = SubResource( 1 )
 
 [node name="Folder2" type="Area2D" parent="."]
 position = Vector2( 49, 234 )
-script = ExtResource( 5 )
 
 [node name="Lock" type="Sprite" parent="Folder2"]
 position = Vector2( 465.27, -192 )
@@ -57,7 +53,6 @@ shape = SubResource( 1 )
 
 [node name="Folder3" type="Area2D" parent="."]
 position = Vector2( 511.27, -4 )
-script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="Folder3"]
 position = Vector2( 2, 46 )
@@ -73,3 +68,8 @@ position = Vector2( -464, 286 )
 scale = Vector2( 0.03, 0.03 )
 z_index = 1
 texture = ExtResource( 2 )
+
+[node name="Cursor" parent="." instance=ExtResource( 7 )]
+
+[connection signal="area_entered" from="Folder1" to="Cursor" method="_on_Folder1_area_entered"]
+[connection signal="body_entered" from="Folder1" to="Folder1" method="_on_Folder1_body_entered"]

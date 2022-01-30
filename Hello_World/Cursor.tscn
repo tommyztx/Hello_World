@@ -8,7 +8,6 @@ extents = Vector2( 9.875, 22.5 )
 [node name="Cursor" type="Area2D"]
 position = Vector2( 13, 23 )
 script = ExtResource( 2 )
-speed = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1, 1 )
