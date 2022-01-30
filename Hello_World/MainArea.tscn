@@ -1,15 +1,32 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://PNGs/folder.png" type="Texture" id=1]
 [ext_resource path="res://PNGs/lock.png" type="Texture" id=2]
-[ext_resource path="res://TextBoxfv.gd" type="Script" id=3]
+[ext_resource path="res://TextBoxfv2.gd" type="Script" id=3]
 [ext_resource path="res://MainArea.gd" type="Script" id=4]
-[ext_resource path="res://TextBox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Fonts/ELEGANT TYPEWRITER Regular.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://PNGs/MainAreaBackground.jpg" type="Texture" id=6]
-[ext_resource path="res://Cursor.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Cursor.gd" type="Script" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31, 24 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 9.875, 22.5 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.117647, 0.0980392, 0.0980392, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.117647, 0.0980392, 0.0980392, 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 40
+font_data = ExtResource( 5 )
 
 [node name="MainArea" type="Node"]
 script = ExtResource( 4 )
@@ -86,10 +103,79 @@ scale = Vector2( 0.03, 0.03 )
 z_index = 1
 texture = ExtResource( 2 )
 
-[node name="Cursor" parent="." instance=ExtResource( 7 )]
+[node name="Cursor" type="Area2D" parent="."]
+position = Vector2( 13, 23 )
+script = ExtResource( 7 )
 
-[node name="TextBoxfv" parent="." instance=ExtResource( 5 )]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor"]
+position = Vector2( -1, 1 )
+shape = SubResource( 7 )
+
+[node name="blinker" type="ColorRect" parent="Cursor"]
+margin_left = -11.0
+margin_top = -21.0
+margin_right = 9.0
+margin_bottom = 24.0
+color = Color( 0.145098, 0.380392, 0.941176, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextBoxfv" type="CanvasLayer" parent="."]
 script = ExtResource( 3 )
+
+[node name="TextboxContainer" type="MarginContainer" parent="TextBoxfv"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = -184.0
+margin_right = -50.0
+margin_bottom = -50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="TextBoxfv/TextboxContainer"]
+margin_right = 924.0
+margin_bottom = 134.0
+custom_styles/panel = SubResource( 4 )
+
+[node name="MarginContainer" type="MarginContainer" parent="TextBoxfv/TextboxContainer"]
+margin_right = 924.0
+margin_bottom = 134.0
+custom_constants/margin_right = 16
+custom_constants/margin_top = 16
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="TextBoxfv/TextboxContainer/MarginContainer"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 908.0
+margin_bottom = 118.0
+custom_styles/panel = SubResource( 5 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextBoxfv/TextboxContainer/MarginContainer"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 908.0
+margin_bottom = 118.0
+
+[node name="Label" type="Label" parent="TextBoxfv/TextboxContainer/MarginContainer/HBoxContainer"]
+margin_right = 892.0
+margin_bottom = 46.0
+rect_min_size = Vector2( 892, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 2
+custom_fonts/font = SubResource( 6 )
+autowrap = true
+
+[node name="Tween" type="Tween" parent="TextBoxfv"]
 
 [connection signal="area_entered" from="Folder1" to="Cursor" method="_on_Folder1_area_entered"]
 [connection signal="body_entered" from="Folder1" to="Folder1" method="_on_Folder1_body_entered"]
+[connection signal="tween_all_completed" from="TextBoxfv/Tween" to="TextBoxfv" method="_on_Tween_tween_all_completed"]

@@ -12,6 +12,4 @@ func _ready():
 
 func _on_Timer_timeout():
 	get_tree().change_scene("res://TypeTutorial.tscn")
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	print(timer.get_time_left())
+# Called every frame. 'delta' is the elapsed time since the previous frame
