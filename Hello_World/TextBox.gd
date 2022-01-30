@@ -15,8 +15,6 @@ var current_state = State.READY
 
 func _ready():
 	hidetextbox()
-	addtext("I love cold tofu :D:D:D:D:D:D")
-	
 	
 func _process(delta):
 	match current_state:
@@ -38,6 +36,7 @@ func hidetextbox():
 
 func showtextbox():
 	textbox_container.show()
+	print("rrrr")
 	
 func addtext(next_text):
 	symbol.text = next_text

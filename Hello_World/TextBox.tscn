@@ -63,12 +63,11 @@ margin_bottom = 138.0
 
 [node name="Label" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer"]
 margin_right = 892.0
-margin_bottom = 121.0
+margin_bottom = 59.0
 rect_min_size = Vector2( 892, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 2
 custom_fonts/font = SubResource( 2 )
-text = "Hello The quick brown fox is coming for you"
 autowrap = true
 
 [node name="Tween" type="Tween" parent="."]
