@@ -25,7 +25,7 @@ func _process(delta):
 			direction = direction.normalized()
 		position += direction * speed * delta
 		position.x = clamp(position.x, 10, screen_size.x - 10)
-		position.y = clamp(position.y, 22.5, screen_size.y - 22.5)
+		position.y = clamp(position.y, 22.5, 416 - 22.5)
 		Variables.pos = position
 	a += 1
 	a %= 20

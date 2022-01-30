@@ -1,14 +1,14 @@
 extends Node
 
 onready var textbox = get_node("TextBox")
-onready var input = get_node("LineEdit")
+onready var input = get_node("InputBox")
 onready var cursor = get_node("Cursor")
 
 func inpos():
 	print(Variables.pos.x)
 	print(Variables.pos.y)
-	if (535 - (293 / 2) < Variables.pos.x && Variables.pos.x < 535 + (293 / 2)):
-		if (175 - (74 /2) < Variables.pos.y && Variables.pos.y < 175 + (74 / 2)):
+	if (535 < Variables.pos.x && Variables.pos.x < 535 + 298):
+		if (175 < Variables.pos.y && Variables.pos.y < 175 + 74):
 			return true
 	else:
 		return false
@@ -20,5 +20,14 @@ func _process(delta):
 	if (Input.is_action_just_pressed("ui_select") && inpos()):
 		Variables.canMove = false
 		input.grabfocus()
-		
+	
 
+
+	
+
+
+func _on_InputBox_text_entered(new_text):
+	Variables.canMove = true
+	input.release_focus()
+	print("eeeee")
+	textbox.addtexte("Nice " + new_text + "! This place is kind of bleak, lets move somewhere else (please enter to move on)", "MainArea")

@@ -60,8 +60,8 @@ shape = SubResource( 2 )
 
 [node name="Cursor" parent="." instance=ExtResource( 4 )]
 position = Vector2( 494, 317 )
-speed = 200.0
 
 [node name="TextBox" parent="." instance=ExtResource( 3 )]
 
+[connection signal="text_entered" from="InputBox" to="." method="_on_InputBox_text_entered"]
 [connection signal="area_entered" from="InputBox/Area2D" to="." method="_on_Area2D_area_entered"]

@@ -17,7 +17,6 @@ __meta__ = {
 
 [node name="Cursor" parent="." instance=ExtResource( 1 )]
 position = Vector2( 60, 67 )
-speed = 200.0
 
 [node name="Timer" type="Timer" parent="."]
 
