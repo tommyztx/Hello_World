@@ -33,3 +33,18 @@ func _process(delta):
 		transparency += 1
 		transparency %= 2
 	modulate.a = transparency
+
+
+func _on_Folder1_area_entered(area):
+	Variables.pos = Vector2(50, 260)
+	get_tree().change_scene("res://Area1.tscn")
+	
+func _on_Folder2_area_entered(area):
+	if (!Variables.locked[0]):
+		Variables.pos = Vector2(980, 260)
+		get_tree().change_scene("res://Area2.tscn")
+	
+func _on_Folder3_area_entered(area):
+	if (!Variables.locked[1]):
+		Variables.pos = Vector2(50, 260)
+		get_tree().change_scene("res://Area3.tscn")
