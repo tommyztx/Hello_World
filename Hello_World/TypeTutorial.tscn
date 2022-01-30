@@ -40,3 +40,4 @@ __meta__ = {
 
 [node name="Cursor" parent="." instance=ExtResource( 2 )]
 position = Vector2( 494, 317 )
+speed = 200.0
