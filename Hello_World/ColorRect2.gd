@@ -20,4 +20,5 @@ func _process(delta):
 			
 		modulate.a = transparency
 	else:
+		modulate.a = 1
 		timer.stop()

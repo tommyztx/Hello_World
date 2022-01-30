@@ -12,7 +12,7 @@ func _ready():
 
 func _unhandled_key_input(event):
 	if event.pressed:
-		get_tree().change_scene("res://Cursor.tscn")
+		get_tree().change_scene("res://Blinking.tscn")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if a <= 0 || a >= 1:
