@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-const CHAR_READ_RATE = 0.05
+const CHAR_READ_RATE = 0.22
 
 onready var textbox_container = $TextboxContainer
 onready var symbol = $TextboxContainer/MarginContainer/HBoxContainer/Label
@@ -13,9 +13,6 @@ enum State {
 
 var current_state = State.READY
 
-func _ready():
-	hidetextbox()
-	
 func _process(delta):
 	match current_state:
 		State.READY:
@@ -27,7 +24,6 @@ func _process(delta):
 				change_state(State.FINISHED)
 		State.FINISHED:
 			if Input.is_action_just_pressed("ui_accept"):
-				change_state(State.READY)
 				hidetextbox()
 	
 func hidetextbox():
