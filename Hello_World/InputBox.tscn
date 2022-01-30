@@ -1,24 +1,24 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Fonts/VeraMono.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Cursor.tscn" type="PackedScene" id=2]
-[ext_resource path="res://TypeTutorial.gd" type="Script" id=3]
-[ext_resource path="res://TextBox.tscn" type="PackedScene" id=4]
-[ext_resource path="res://LineEdit.gd" type="Script" id=5]
+[ext_resource path="res://InputBox.gd" type="Script" id=1]
+[ext_resource path="res://TypeTutorial.gd" type="Script" id=2]
+[ext_resource path="res://TextBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Cursor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Fonts/VeraMono.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
-font_data = ExtResource( 1 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 40
-font_data = ExtResource( 1 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 145, 34.5 )
 
 [node name="TypeTutorial" type="Node"]
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -40,28 +40,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LineEdit" type="LineEdit" parent="."]
+[node name="InputBox" type="LineEdit" parent="."]
 margin_left = 535.0
 margin_top = 175.0
 margin_right = 828.0
 margin_bottom = 249.0
 custom_fonts/font = SubResource( 3 )
-script = ExtResource( 5 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Area2D" type="Area2D" parent="LineEdit"]
+[node name="Area2D" type="Area2D" parent="InputBox"]
 position = Vector2( -3, 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LineEdit/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InputBox/Area2D"]
 position = Vector2( 148, 36.5 )
 shape = SubResource( 2 )
 
-[node name="Cursor" parent="." instance=ExtResource( 2 )]
+[node name="Cursor" parent="." instance=ExtResource( 4 )]
 position = Vector2( 494, 317 )
 speed = 200.0
 
-[node name="TextBox" parent="." instance=ExtResource( 4 )]
+[node name="TextBox" parent="." instance=ExtResource( 3 )]
 
-[connection signal="area_entered" from="LineEdit/Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="InputBox/Area2D" to="." method="_on_Area2D_area_entered"]

@@ -18,12 +18,12 @@ func _process(delta):
 		State.READY:
 			pass
 		State.READING:
-			if Input.is_action_just_pressed("ui_accept"):
+			if Input.is_action_just_pressed("enter"):
 				symbol.percent_visible = 1.0
 				$Tween.stop_all()
 				change_state(State.FINISHED)
 		State.FINISHED:
-			if Input.is_action_just_pressed("ui_accept"):
+			if Input.is_action_just_pressed("enter"):
 				hidetextbox()
 	
 func hidetextbox():
